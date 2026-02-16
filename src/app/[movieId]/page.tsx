@@ -15,8 +15,8 @@ const DetailsCard = async ({ params }: DetailsCardProps) => {
   const backdropUrl = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
 
   return (
-    <div className="min-h-screen text-black mt-15">
-      <div className="relative w-full h-[80vh]">
+    <div className=" text-black mt-15 ">
+      <div className="w-full">
         <div className="relative w-full h-[80vh]">
           <div className="absolute inset-0">
             <img
@@ -27,10 +27,11 @@ const DetailsCard = async ({ params }: DetailsCardProps) => {
             <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent" />
             <div className="absolute inset-0 bg-linear-to-r from-black/80 via-transparent to-transparent" />
           </div>
+
           <LinkButtons />
         </div>
 
-        <div className="absolute bottom-2 left-0 p-12 z-40 group hover:scale-105">
+        <div className="absolute p-12 top-1/2 z-40 group hover:scale-105">
           <div className="max-w-7xl mx-auto text-white space-y-6">
             <h1 className="text-3xl md:text-4xl lg:text-5xl leading-8">
               {movie.title}

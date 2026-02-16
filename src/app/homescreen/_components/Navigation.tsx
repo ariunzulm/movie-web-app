@@ -1,5 +1,5 @@
 "use client";
-import { InputGroup, div, InputGroupInput } from "@/components/ui/input-group";
+import { InputGroup, InputGroupInput } from "@/components/ui/input-group";
 import { ModeToggle } from "./ModeToggle";
 import { Search, X, ChevronDown, Clapperboard } from "lucide-react";
 import { useState } from "react";

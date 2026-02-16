@@ -1,107 +1,96 @@
 "use client";
 
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-} from "@/components/ui/dropdown-menu";
-
-import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
 } from "@/components/ui/input-group";
 import { Field } from "@/components/ui/field";
 import { getSearchMovies } from "@/lib/api/search-movies";
-import { Movie } from "@/lib/types";
-import { Loader2, SearchIcon } from "lucide-react";
+import { ArrowRight, Loader2, SearchIcon, Star } from "lucide-react";
 import { ChangeEventHandler, use, useEffect, useState } from "react";
-import { SearchProps } from "../[movieId]/_utils/awaits";
+import { Movie } from "@/lib/types";
+import { Button } from "@/components/ui/button";
 
-const Search = ({ movies }: SearchProps) => {
+const Search = () => {
   const [searchValue, setSearchValue] = useState<string>("");
-  const [searchResult, setSearchResult] = useState<Movie[]>([]);
+  const [movies, setMovies] = useState<Movie[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const onChangeSearchValue: ChangeEventHandler<HTMLInputElement> = (event) => {
     setSearchValue(event.target.value);
-    console.log({ setSearchValue });
   };
 
   useEffect(() => {
     if (searchValue === "") {
-      setSearchResult([]);
-      setIsOpen(false);
+      setMovies([]);
       return;
     }
     setIsLoading(true);
 
     const timer = setTimeout(async () => {
-      try {
-        const data = await getSearchMovies(searchValue);
-        setSearchResult(data.results);
-        setIsOpen(true);
-      } catch (error) {
-        console.error({ error });
-        setSearchResult([]);
-      } finally {
-        setIsLoading(false);
-      }
+      const data = await getSearchMovies(searchValue);
+      console.log({ data });
+      setMovies(data.results);
     }, 500);
 
     return () => clearTimeout(timer);
   }, [searchValue]);
 
-  const handleMovieSelect = (movieId: number) => {
-    setSearchValue("");
-    setIsOpen(false);
-  };
-
   return (
-    <div className="relative flex flex-col justify-center w-full max-w-2xl mx-auto mt-20 mb-100">
+    <div className="relative flex flex-col w-full max-w-138.25 mx-auto mt-20 h-screen">
       <Field className="w-full">
-        <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
-          <InputGroup>
-            <InputGroupAddon align="inline-start">
-              {isLoading && (
-                <Loader2 className="text-muted-foreground animate-spin" />
-              )}
-              {!isLoading && <SearchIcon className="text-muted-foreground" />}
-            </InputGroupAddon>
+        <InputGroup>
+          <InputGroupAddon align="inline-start">
+            {isLoading && (
+              <Loader2 className="text-muted-foreground animate-spin" />
+            )}
+            {!isLoading && <SearchIcon className="text-muted-foreground" />}
+          </InputGroupAddon>
 
-            <InputGroupInput
-              value={searchValue}
-              onChange={onChangeSearchValue}
-              placeholder="Type here to search..."
-              className="text-black"
-            />
-          </InputGroup>
-          {searchResult.length > 0 && (
-            <DropdownMenuContent className="w-full min-w-125 absolute bottom-0">
-              {searchResult.slice(0, 8).map((movie) => (
-                <DropdownMenuItem
-                  key={movie.id}
-                  onClick={() => handleMovieSelect(movie.id)}
-                  className="cursor-pointer"
-                >
-                  <div className="flex items-center gap-3">
-                    {movies?.map((movie) => (
-                      <img
-                        key={movie.id}
-                        src={movie.poster_path}
-                        alt={movie.title}
-                        className="aspect-video h-full w-full object-cover"
-                      />
-                    ))}
-                  </div>
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          )}
-        </DropdownMenu>
+          <InputGroupInput
+            value={searchValue}
+            onChange={onChangeSearchValue}
+            placeholder="Type here to search..."
+            className="text-black"
+          />
+        </InputGroup>
+
+        <div className="absolute top-10 flex-col flex gap-1 bg-zinc-100">
+          {movies.slice(0, 4).map((movie) => (
+            <div key={movie.id} className="w-full flex p-6 justify-between">
+              <div className="flex gap-3">
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path} `}
+                  alt={`${movie.title} poster`}
+                  className="w-16.75 h-25 object-cover rounded-md object-center shrink-0"
+                />
+                <div className="flex flex-col">
+                  <h2 className="text-base font-semibold text-muted-foreground relative">
+                    {movie.title}
+                  </h2>
+
+                  <span className="flex gap-1 text-sm text-muted-foreground ">
+                    <span className=" text-yellow-400 fill-yellow-400">★</span>
+                    {Math.floor(movie.vote_average * 10) / 10} (
+                    {movie.vote_count}
+                    votes)
+                  </span>
+
+                  <span className="text-sm">
+                    {movie.release_date.slice(0, 4)}
+                  </span>
+                </div>
+              </div>
+              <Button className="w-fit text-sm self-end gap-1.5 hover:scale-105 transition-all duration-200 group/btn cursor-pointer">
+                <span>See More</span>
+                <ArrowRight className="w-3 h-3" />
+              </Button>
+            </div>
+          ))}
+        </div>
       </Field>
-      {searchValue && !isLoading && searchResult.length === 0 && (
+      {searchValue && !isLoading && (
         <p className="text-sm text-muted-foreground mt-2 text-center">
           No movies found
         </p>
