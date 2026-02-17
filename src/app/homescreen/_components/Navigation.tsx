@@ -74,13 +74,14 @@ const Navigation = () => {
               )}
             ></div>
             <div
-              className="h-10 w-10 cursor-pointer flex items-center border border-gray-200 rounded-xl justify-center text-white hover:text-white/80"
+              className="h-10 w-10 cursor-pointer flex items-center rounded-xl justify-center text-white hover:text-red-800 hover:backdrop-blur-lg"
               onClick={() => setIsSearchOpen(!isSearchOpen)}
             >
               {isLoading && <Loader2 className="w-5 h-5 animate-spin" />}
               {!isLoading && <SearchIcon className="w-5 h-5" />}
             </div>
           </div>
+
           <input
             type="text"
             value={searchValue}
@@ -94,14 +95,14 @@ const Navigation = () => {
           {isSearchOpen && (
             <button
               onClick={handleClearSearch}
-              className="absolute right-2 text-white hover:text-white/80"
+              className="absolute right-1/15 text-white hover:text-white/80"
             >
               <X className="w-5 h-5" />
             </button>
           )}
-          <div className="absolute top-10 flex-col flex gap-1 bg-zinc-100">
+          <div className="absolute top-10 flex-col flex gap-1 backdrop-blur-lg shadow-2xl bg-zinc-200 rounded-xl">
             {movies.slice(0, 4).map((movie) => (
-              <div key={movie.id} className="w-full flex p-6 justify-between">
+              <div key={movie.id} className="flex p-6 justify-between w-full">
                 <div className="flex gap-3">
                   <img
                     src={`https://image.tmdb.org/t/p/w500${movie.poster_path} `}
@@ -134,7 +135,12 @@ const Navigation = () => {
               </div>
             ))}
           </div>
-          <div className={cn(isSearchOpen && "sm:hidden")}>
+          <div className="flex flex-col">
+            <div
+              className={cn(
+                "flex items-center border w-10 border-zinc-200 rounded-xl bg-zinc-700/50 transition-all",
+              )}
+            ></div>
             <ModeToggle />
           </div>
         </div>
