@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Calendar, Play, ShieldEllipsis, Star } from "lucide-react";
+import { Calendar, Info, Play, Star } from "lucide-react";
 
 import {
   Card,
@@ -68,7 +68,7 @@ const HeroCarouselCard = ({
               <span>Play Trailer</span>
             </Button>
             <Button className="w-fit text-sm font-semibold shadow-lg rounded-lg  text-white bg-transparent  backdrop-blur-md border border-zinc-200 gap-1.5 py-1 hover:bg-gray-900 hover:scale-105 transition-all duration-200 hover:text-white group/btn">
-              <ShieldEllipsis className="w-3 h-3 group-hover/btn:fill-current" />
+              <Info className="w-3 h-3 group-hover/btn:fill-current" />
               <span>See More</span>
             </Button>
           </div>

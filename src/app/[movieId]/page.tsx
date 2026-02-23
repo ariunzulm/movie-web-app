@@ -15,7 +15,7 @@ const DetailsCard = async ({ params }: DetailsCardProps) => {
   const backdropUrl = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
 
   return (
-    <div className=" text-black mt-15 ">
+    <div className=" text-black">
       <div className="w-full">
         <div className="relative w-full h-[80vh]">
           <div className="absolute inset-0">

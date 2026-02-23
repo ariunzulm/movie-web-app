@@ -2,6 +2,7 @@ import Link from "next/link";
 import MovieHomeCard from "./MovieHomeCard";
 import MovieListingTitles from "./MovieListingTitles";
 import { Movie } from "@/lib/types";
+
 type MovieHomeListingsProps = {
   title: string;
   movies: Movie[];
@@ -13,7 +14,7 @@ const MovieHomeListings = async ({ title, movies }: MovieHomeListingsProps) => {
       <MovieListingTitles title={title} />
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-        {movies.map((movie) => (
+        {movies?.map((movie) => (
           <Link key={movie.id} href={`/${movie.id}`} className="block">
             <MovieHomeCard
               movieName={movie.title}

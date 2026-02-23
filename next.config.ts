@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   env: {
     token: process.env.token,
   },
+  compiler: {
+    styledComponents: true,
+  },
 };
 
 export default nextConfig;

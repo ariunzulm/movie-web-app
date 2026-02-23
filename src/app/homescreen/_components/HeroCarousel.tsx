@@ -16,7 +16,7 @@ type HeroCarouselProps = {
 
 const HeroCarousel = async ({ movies }: HeroCarouselProps) => {
   return (
-    <div className="w-full h-fit relative mt-15">
+    <div className="w-full h-fit relative ">
       <Carousel
         opts={{
           align: "start",

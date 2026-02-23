@@ -1,11 +1,9 @@
 import { options } from ".";
 import { Response } from "../types";
 
-const upcomingMovies = "/upcoming?language=en-US&page=1";
-
-export const getUpcomingMovies = async (): Promise<Response> => {
+export const getUpcomingMovies = async (page: number): Promise<Response> => {
   const response = await fetch(
-    `${process.env.baseUrl}${upcomingMovies}`,
+    `${process.env.baseUrl}/upcoming?language=en-US&page=${page}`,
     options,
   );
   const data = await response.json();
