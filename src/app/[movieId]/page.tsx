@@ -15,7 +15,7 @@ const DetailsCard = async ({ params }: DetailsCardProps) => {
   const backdropUrl = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
 
   return (
-    <div className=" text-black">
+    <div className="text-foreground">
       <div className="w-full">
         <div className="relative w-full h-[80vh]">
           <div className="absolute inset-0">
@@ -31,9 +31,9 @@ const DetailsCard = async ({ params }: DetailsCardProps) => {
           <LinkButtons />
         </div>
 
-        <div className="absolute p-12 top-1/2 z-40 group hover:scale-105">
+        <div className="absolute p-12 top-3/5 z-40 group">
           <div className="max-w-7xl mx-auto text-white space-y-6">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl leading-8">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
               {movie.title}
             </h1>
             <Buttons />

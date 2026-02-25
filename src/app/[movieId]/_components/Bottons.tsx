@@ -1,18 +1,18 @@
 import { Button } from "@/components/ui/button";
-import { Download, Play, Plus, RectangleEllipsis } from "lucide-react";
+import { Download, Info, Play, Plus } from "lucide-react";
 
 const Buttons = () => {
   return (
-    <div className="flex items-center gap-4 sm:text-md">
-      <Button className="w-fit text-sm font-semibold shadow-lg rounded-lg  text-black border border-zinc-200 bg-gray-200 gap-1.5 py-1 hover:bg-gray-900 hover:scale-105 transition-all duration-200 hover:text-white group/btn">
-        <Play className="w-3 h-3 group-hover/btn:fill-current " />
-        <span>Play Trailer</span>
+    <div className="flex items-center gap-4">
+      <Button className="w-fit gap-1.5 py-1 text-sm font-semibold rounded-lg text-black bg-gray-200 border border-white/20 hover:bg-zinc-200 hover:scale-105 transition-all duration-200 group/btn shadow-2xl hover:text-red-800">
+        <Play className="w-3 h-3 group-hover/btn:fill-current" />
+        Play Trailer
       </Button>
 
       <Button
         size="icon"
         variant="ghost"
-        className="h-12 w-12 rounded-full border-2 border-white/50 hover:scale-125 bg-black/30 hover:bg-white/10 backdrop-blur-sm"
+        className="h-12 w-12 rounded-full  bg-white/10 text-white border border-white/20 backdrop-blur-sm hover:bg-white/20 hover:scale-105 transition-all duration-200 group/btn"
       >
         <Plus className="w-4 h-4" />
       </Button>
@@ -20,14 +20,14 @@ const Buttons = () => {
       <Button
         size="icon"
         variant="ghost"
-        className="h-12 w-12 rounded-full border-2 border-white/50 hover:scale-125 bg-black/30 hover:bg-white/10 backdrop-blur-sm"
+        className="h-12 w-12 rounded-full  bg-white/10 text-white border border-white/20 backdrop-blur-sm hover:bg-white/20 hover:scale-105 transition-all duration-200 group/btn"
       >
         <Download className="w-4 h-4" />
       </Button>
 
-      <Button className="w-fit text-sm font-semibold shadow-lg rounded-lg  text-white bg-transparent  backdrop-blur-md border border-zinc-200 gap-1.5 py-1 hover:bg-gray-900 hover:scale-105 transition-all duration-200 hover:text-white group/btn">
-        <RectangleEllipsis className="w-3 h-3 group-hover/btn:fill-current " />
-        <span>Similars</span>
+      <Button className="w-fit gap-1.5 py-1 text-sm font-semibold shadow-lg rounded-lg bg-white/10 text-white border border-white/20 backdrop-blur-sm hover:bg-white/20 hover:scale-105 transition-all duration-200 group/btn">
+        <Info className="w-3 h-3" />
+        See More
       </Button>
     </div>
   );

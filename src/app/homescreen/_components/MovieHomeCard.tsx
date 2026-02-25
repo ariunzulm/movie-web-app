@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/card";
 type MovieHomeCardProps = {
   rating: number;
   movieName: string;
+  description: string;
   posterImage: string;
   onPlayClick?: () => void;
 };
@@ -57,8 +58,7 @@ const MovieHomeCard = ({
             </Badge>
           </div>
           <Button
-            className="w-full text-sm bg-primary text-white border border-zinc-200 gap-1.5 
-      hover:bg-zinc-200 hover:text-black transition-colors group/btn"
+            className="w-full text-sm bg-primary text-white border border-zinc-200 gap-1.5 hover:bg-zinc-200 hover:text-black transition-colors group/btn"
             onClick={onPlayClick}
           >
             <Play className="w-3 h-3 group-hover/btn:fill-current transition-all" />
