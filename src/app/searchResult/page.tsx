@@ -1,21 +1,14 @@
-import Link from "next/link";
-
-import MovieListingTitles from "../homescreen/_components/MovieListingTitles";
 import MovieHomeCard from "../homescreen/_components/MovieHomeCard";
 import { Movie } from "@/lib/types";
 import { getSearchMovies } from "@/lib/api/search-movies";
 
-type MovieHomeListingsProps = {
+type SearchMoviesProps = {
   title: string;
   movies: Movie[];
   searchParams: Promise<{ [key: string]: string }>;
 };
 
-const SearchResults = async ({
-  title,
-
-  searchParams,
-}: MovieHomeListingsProps) => {
+const SearchResults = async ({ searchParams }: SearchMoviesProps) => {
   const { searchValue } = await searchParams;
   const { results } = await getSearchMovies(searchValue, 1);
 
@@ -34,6 +27,7 @@ const SearchResults = async ({
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
         {results?.map((movie) => (
           <MovieHomeCard
+            key={movie.id}
             movieName={movie.title}
             description={movie.overview}
             posterImage={movie.poster_path}

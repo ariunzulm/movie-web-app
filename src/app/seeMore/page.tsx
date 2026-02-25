@@ -18,7 +18,7 @@ const UpcomingSeeMore = async ({ searchParams }: SeeMoreProps) => {
   const { page } = await searchParams;
 
   const data = await getUpcomingMovies(page ?? 1);
-
+  console.log(data);
   const currentPage = Number(page) || 1;
 
   return (
