@@ -40,17 +40,13 @@ const MovieInfo = async ({ params }: DetailsCardProps) => {
 
         <div className="flex flex-wrap gap-2">
           {movie.genres?.map((genre) => (
-            <Badge
+            <div
               key={genre.id}
-              variant="secondary"
-              className="border border-zinc-900 bg-white/5 px-3 py-1.5 text-sm rounded-full
-                text-zinc-300 cursor-pointer transition-colors
-                hover:bg-white/10 hover:text-white
-                dark:border-white/10 dark:bg-white/5 dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-white
-                light:border-zinc-900 light:bg-white light:text-zinc-900 light:font-medium light:hover:text-zinc-900"
+              className="px-3 py-1.5 text-sm rounded-full cursor-pointer transition-colors bg-zinc-800 text-zinc-100 hover:bg-zinc-700 hover:text-white
+               dark:bg-white/5 dark:border dark:border-white/10 dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-white light:bg-zinc-100 light:text-zinc-900 light:border light:border-zinc-300 light:hover:bg-zinc-200"
             >
               {genre.name}
-            </Badge>
+            </div>
           ))}
         </div>
         <div className="h-px bg-border w-full" />
@@ -80,7 +76,7 @@ const MovieInfo = async ({ params }: DetailsCardProps) => {
           <Star className="w-4 h-4 shrink-0 text-yellow-400 fill-yellow-400" />
           <span className="font-semibold text-foreground">Rating:</span>
           <span>
-            {Math.floor(movie.vote_average * 10) / 10} ({movie.vote_count}
+            {Math.floor(movie.vote_average * 10) / 10} /10 ({movie.vote_count}
             votes)
           </span>
         </div>

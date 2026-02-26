@@ -32,7 +32,7 @@ const MenuBar = () => {
                 <div
                   className={cn(
                     "h-0.75 w-full rounded-full transition-all duration-300",
-                    isActive ? "bg-red-800" : "bg-zinc-200",
+                    isActive ? "bg-red-500" : "bg-zinc-200",
                   )}
                 ></div>
                 <button
@@ -41,7 +41,7 @@ const MenuBar = () => {
                     "cursor-pointer flex items-center rounded-xl justify-center text-black",
                     isActive
                       ? "text-red-800 font-semibold"
-                      : "text-zinc-600 hover:text-black",
+                      : "text-zinc-600 hover:text-zinc-200",
                   )}
                 >
                   {label}

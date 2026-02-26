@@ -24,10 +24,10 @@ const Buttons = () => {
       >
         <Download className="w-4 h-4" />
       </Button>
-
+    
       <Button className="w-fit gap-1.5 py-1 text-sm font-semibold shadow-lg rounded-lg bg-white/10 text-white border border-white/20 backdrop-blur-sm hover:bg-white/20 hover:scale-105 transition-all duration-200 group/btn">
         <Info className="w-3 h-3" />
-        See More
+        Similars
       </Button>
     </div>
   );
