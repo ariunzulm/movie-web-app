@@ -2,7 +2,7 @@ import MovieHomeCard from "../homescreen/_components/MovieHomeCard";
 import { Movie } from "@/lib/types";
 import { getSearchMovies } from "@/lib/api/search-movies";
 import Link from "next/link";
-import SearchPage from "../genreFilter/page";
+import SearchPage from "../genreFilter/GenreHomeList";
 import GenreList from "../genreFilter/_components/GenreList";
 import GenreSearch from "../genreFilter/_components/GenreSearch";
 
@@ -11,13 +11,12 @@ type SearchMoviesProps = {
   movies: Movie[];
   searchParams: Promise<{ [key: string]: string }>;
 };
-type SearchPageProps = {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-};
+
 const SearchResults = async ({ searchParams }: SearchMoviesProps) => {
   const { searchValue } = await searchParams;
 
   const { results } = await getSearchMovies(searchValue, 1);
+  const noPosterImage = results.filter((movie) => movie.poster_path);
 
   return (
     <div>
@@ -33,7 +32,7 @@ const SearchResults = async ({ searchParams }: SearchMoviesProps) => {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-          {results?.map((movie) => (
+          {noPosterImage?.map((movie) => (
             <Link key={movie.id} href={`/${movie.id}`}>
               <MovieHomeCard
                 movieName={movie.title}
