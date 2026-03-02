@@ -27,7 +27,7 @@ const HeroCarouselCard = ({
 
   return (
     <Card className="w-full bg-transparent border-none pointer-events-auto">
-      <div className="relative h-100 w-full overflow-hidden md:h-125">
+      <div className="relative h-130 w-full overflow-hidden md:h-140">
         <img
           src={backdropUrl}
           alt={`${movieName} backdrop`}

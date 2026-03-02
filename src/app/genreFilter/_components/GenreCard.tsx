@@ -21,8 +21,4 @@ const GenreCard = ({ genre, isSelected }: GenreCardProps) => {
     </div>
   );
 };
-
 export default GenreCard;
-{
-  /* <div className={`${isSelected && "text-red-500"}`}>{genre.name}</div>; */
-}

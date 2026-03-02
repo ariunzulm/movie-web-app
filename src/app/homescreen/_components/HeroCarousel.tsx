@@ -8,7 +8,6 @@ import {
 
 import HeroCarouselCard from "./HeroCarouselCard";
 import { Movie } from "@/lib/types";
-import { ArrowLeft, ArrowLeftCircle, ArrowRight } from "lucide-react";
 
 type HeroCarouselProps = {
   movies: Movie[];
