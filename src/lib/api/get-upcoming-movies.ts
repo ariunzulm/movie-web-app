@@ -10,3 +10,4 @@ export const getUpcomingMovies = async (page: number): Promise<Response> => {
 
   return data;
 };
+  

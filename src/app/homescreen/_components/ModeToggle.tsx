@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
@@ -14,18 +13,13 @@ import {
 import { cn } from "@/lib/utils";
 
 export function ModeToggle() {
-  const { setTheme, theme } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button
-          className={cn(
-            "bg-transparent outline-none h-10 w-10 border-none text-zinc-200 hover:text-red-800",
-          )}
-        >
-          <Sun className="h-1O w-10 scale-100 rotate-0 bg-transparent transition-all dark:scale-0 dark:-rotate-90" />
-          <Moon className="absolute h-10 w-10 scale-0 rotate-90 bg-transparent transition-all dark:scale-100 dark:rotate-0" />
+        <Button className="w-10 h-10 bg-transparent border-none outline-none text-zinc-200 hover:text-red-800">
+          {theme === "light" ? <Moon className="" /> : <Sun className="" />}
         </Button>
       </DropdownMenuTrigger>
 

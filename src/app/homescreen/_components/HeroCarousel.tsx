@@ -8,6 +8,7 @@ import {
 
 import HeroCarouselCard from "./HeroCarouselCard";
 import { Movie } from "@/lib/types";
+import Link from "next/link";
 
 type HeroCarouselProps = {
   movies: Movie[];
@@ -26,14 +27,16 @@ const HeroCarousel = async ({ movies }: HeroCarouselProps) => {
         <CarouselContent>
           {movies.map((movie) => {
             return (
-              <CarouselItem key={movie.id} className="border-none">
-                <HeroCarouselCard
-                  movieName={movie.title}
-                  description={movie.overview}
-                  posterImage={movie.backdrop_path}
-                  rating={movie.vote_average}
-                  date={movie.release_date}
-                />
+              <CarouselItem className="border-none">
+                <Link key={movie.id} href={`/${movie.id}`}>
+                  <HeroCarouselCard
+                    movieName={movie.title}
+                    description={movie.overview}
+                    posterImage={movie.backdrop_path}
+                    rating={movie.vote_average}
+                    date={movie.release_date}
+                  />
+                </Link>
               </CarouselItem>
             );
           })}

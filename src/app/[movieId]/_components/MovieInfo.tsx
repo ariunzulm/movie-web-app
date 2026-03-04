@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { getMovieById } from "@/lib/api/get-moviesById";
-import { Calendar, Clock, Star } from "lucide-react";
+import { Calendar, Clock, Languages, Star } from "lucide-react";
 import { DetailsCardProps } from "../_utils/awaits";
 
 export const SectionHeader = ({ title }: { title: string }) => {
@@ -54,6 +54,9 @@ const MovieInfo = async ({ params }: DetailsCardProps) => {
 
       <div className="space-y-4 p-4 w-full rounded-2xl">
         <SectionHeader title="Overview" />
+        <div className="flex items-center gap-3 text-muted-foreground ">
+          "{movie.tagline}"
+        </div>
         <p className="text-muted-foreground leading-relaxed text-base">
           {movie.overview}
         </p>
@@ -61,7 +64,10 @@ const MovieInfo = async ({ params }: DetailsCardProps) => {
       <div className="h-px bg-border w-full" />
       <div className="space-y-4 p-4 w-full">
         <SectionHeader title="Details" />
-
+        <div className="flex items-center gap-3 text-muted-foreground border w-fit px-1.5 py-0.5 font-semibold ">
+          <Languages className="w-4 h-4" />
+          {movie.original_language}
+        </div>
         <div className="flex items-center gap-3 text-muted-foreground ">
           <Calendar className="w-4 h-4" />
           <span className="font-semibold text-foreground">Release:</span>

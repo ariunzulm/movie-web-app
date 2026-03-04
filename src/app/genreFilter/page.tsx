@@ -17,7 +17,7 @@ const SearchPage = async ({
     .filter(Boolean)
     .map((id) => genres.find((g) => String(g.id) === id)?.name)
     .filter(Boolean)
-    .join(",");
+    .join(", ");
 
   console.log(selectedGenreName);
 
@@ -28,9 +28,9 @@ const SearchPage = async ({
         <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground relative">
           <span className="relative z-10">Browse By Genre</span>
         </h2>
-        <span className="relative z-10 flex items-center">
-          : {selectedGenreName}
-        </span>
+      </div>
+      <div className="text-2xl font-semibold text-muted-foreground">
+        {selectedGenreName}
       </div>
 
       <GenreList selectedGenre={selectedGenre} />

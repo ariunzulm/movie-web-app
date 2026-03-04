@@ -19,12 +19,28 @@ export default async function Home() {
       <main className="max-w-360 mx-auto sm:px-6 lg:px-8">
         <section className="py-8 md:py-12">
           <GenreHomeList />
-          <MovieHomeListings title="Now playing" movies={nowPlaying} />
+          <MovieHomeListings
+            title="Now playing"
+            category="now_playing"
+            movies={nowPlaying}
+          />
         </section>
         <div className="pb-10">
-          <MovieHomeListings title="Popular" movies={popular} />
-          <MovieHomeListings title="Up coming" movies={upcoming} />
-          <MovieHomeListings title="Top rated " movies={topRated} />
+          <MovieHomeListings
+            title="Popular"
+            movies={popular}
+            category="popular"
+          />
+          <MovieHomeListings
+            title="Up coming"
+            movies={upcoming}
+            category="upcoming"
+          />
+          <MovieHomeListings
+            title="Top rated "
+            movies={topRated}
+            category="top_rated"
+          />
         </div>
       </main>
     </div>

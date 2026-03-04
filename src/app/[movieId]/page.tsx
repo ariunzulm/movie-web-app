@@ -6,6 +6,7 @@ import MovieInfo from "./_components/MovieInfo";
 import Similars from "./_components/Similars";
 import PosterDetails from "./_components/PosterDetails";
 import LinkButtons from "./_components/LinkButtons";
+import { getMoviesByTrailer } from "@/lib/api/get-movies-by-trailer";
 
 const DetailsCard = async ({ params }: DetailsCardProps) => {
   const { movieId } = await params;
@@ -24,6 +25,7 @@ const DetailsCard = async ({ params }: DetailsCardProps) => {
               alt={movie.title}
               className="aspect-video h-full w-full object-cover"
             />
+            <MovieTrailer movieId={movieId} />
             <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent" />
             <div className="absolute inset-0 bg-linear-to-r from-black/80 via-transparent to-transparent" />
           </div>
@@ -43,6 +45,7 @@ const DetailsCard = async ({ params }: DetailsCardProps) => {
         <div className="w-full max-w-4xl mx-auto flex flex-col md:flex-row gap-2">
           <PosterDetails params={params} /> <MovieInfo params={params} />
         </div>
+
         <Similars params={params} />
       </div>
     </div>
@@ -50,3 +53,28 @@ const DetailsCard = async ({ params }: DetailsCardProps) => {
 };
 
 export default DetailsCard;
+
+const MovieTrailer = async ({ movieId }: { movieId: string }) => {
+  const { results } = await getMoviesByTrailer(movieId);
+  console.log(results);
+
+  const trailer = results?.find(
+    (vid: any) => vid.type === "Trailer" && vid.site === "YouTube",
+  );
+  if (!trailer)
+    return (
+      <div className="p-6 w-fit h-108 gap-4 flex items-center justify-center">
+        <span className="text-gray-500">No trailer available</span>
+      </div>
+    );
+  return (
+    <iframe
+      width={100}
+      height="400"
+      className="absolute inset-0 h-full w-full aspect-video object-cover rounded-xl shadow-lg"
+      src={`https://www.youtube.com/embed/${trailer.key}`}
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    />
+  );
+};

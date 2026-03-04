@@ -1,1 +1,0 @@
-npm dlx shadcn@latest add carousel

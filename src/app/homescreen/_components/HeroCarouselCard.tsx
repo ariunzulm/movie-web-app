@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Calendar, Info, Play, Star } from "lucide-react";
+import { Calendar, Info, Link, Play, Star } from "lucide-react";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
+import { Movie } from "@/lib/types";
 
 type HeroCarouselCardProps = {
   movieName: string;
