@@ -27,8 +27,8 @@ const HeroCarousel = async ({ movies }: HeroCarouselProps) => {
         <CarouselContent>
           {movies.map((movie) => {
             return (
-              <CarouselItem className="border-none">
-                <Link key={movie.id} href={`/${movie.id}`}>
+              <CarouselItem key={movie.id} className="border-none">
+                <Link href={`/${movie.id}`}>
                   <HeroCarouselCard
                     movieName={movie.title}
                     description={movie.overview}
