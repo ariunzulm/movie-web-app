@@ -1,7 +1,7 @@
 import { getMovieById } from "@/lib/api/get-moviesById";
 import { DetailsCardProps } from "./_utils/awaits";
 
-import Buttons, { TrailerButton } from "./_components/Bottons";
+import Buttons from "./_components/Bottons";
 import MovieInfo from "./_components/MovieInfo";
 import Similars from "./_components/Similars";
 import PosterDetails from "./_components/PosterDetails";
@@ -42,12 +42,13 @@ const DetailsCard = async ({ params }: DetailsCardProps) => {
               alt={movie.title}
               className="aspect-video h-full w-full object-cover"
             />
+
             <Dialog>
               <DialogTitle className="sr-only">{movie.title}</DialogTitle>
               <DialogTrigger asChild>
                 <Buttons />
               </DialogTrigger>
-              <DialogContent className="sm:max-w-sm">
+              <DialogContent className="max-w-lg">
                 <iframe
                   className="h-full w-full aspect-video object-cover rounded-xl shadow-lg"
                   src={`https://www.youtube.com/embed/${trailer.key}`}
@@ -83,29 +84,29 @@ const DetailsCard = async ({ params }: DetailsCardProps) => {
 
 export default DetailsCard;
 
-// const MovieTrailer = async ({ movieId }: { movieId: string }) => {
-//   const { results } = await getMoviesByTrailer(movieId);
+const MovieTrailer = async ({ movieId }: { movieId: string }) => {
+  const { results } = await getMoviesByTrailer(movieId);
 
-//   const trailer = results?.find(
-//     (vid: any) => vid.type === "Trailer" && vid.site === "YouTube",
-//   );
-//   if (!trailer)
-//     return (
-//       <div className="p-6 w-fit h-108 gap-4 flex items-center justify-center">
-//         <span className="text-gray-500">No trailer available</span>
-//       </div>
-//     );
+  const trailer = results?.find(
+    (vid: any) => vid.type === "Trailer" && vid.site === "YouTube",
+  );
+  if (!trailer)
+    return (
+      <div className="p-6 w-fit h-108 gap-4 flex items-center justify-center">
+        <span className="text-gray-500">No trailer available</span>
+      </div>
+    );
 
-//   return (
-//     <Dialog>
-//       <DialogContent className="sm:max-w-sm">
-//         <iframe
-//           className="h-full w-full aspect-video object-cover rounded-xl shadow-lg"
-//           src={`https://www.youtube.com/embed/${trailer.key}`}
-//           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-//           allowFullScreen
-//         />
-//       </DialogContent>
-//     </Dialog>
-//   );
-// };
+  return (
+    <Dialog>
+      <DialogContent className="sm:max-w-sm">
+        <iframe
+          className="h-full w-full aspect-video object-cover rounded-xl shadow-lg"
+          src={`https://www.youtube.com/embed/${trailer.key}`}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </DialogContent>
+    </Dialog>
+  );
+};

@@ -31,18 +31,20 @@ export default function MovieListingTitles({
 }
 export const Title = ({ variant, title }: TitleProps) => {
   return (
-    <div className="flex gap-2 items-center">
-      <div
-        className={cn(
-          "w-1.5 h-10 rounded-full",
-          variant === "accent" ? "bg-primary" : "bg-red-500",
-        )}
-      />
+    <>
+      <div className="flex gap-2 items-center">
+        <div
+          className={cn(
+            "w-1.5 h-10 rounded-full",
+            variant === "accent" ? "bg-primary" : "bg-red-500",
+          )}
+        />
 
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
-        {title}
-      </h2>
-    </div>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
+          {title}
+        </h2>
+      </div>
+    </>
   );
 };
 

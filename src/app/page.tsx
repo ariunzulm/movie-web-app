@@ -5,6 +5,7 @@ import { getUpcomingMovies } from "@/lib/api/get-upcoming-movies";
 import { getTopRatedMovies } from "@/lib/api/get-toprated-movies";
 import { getNowPlayingMovies } from "@/lib/api/get-nowPlaying-movies";
 import GenreHomeList from "./genreFilter/_components/GenreHomeList";
+import Similars from "./[movieId]/_components/Similars";
 
 export default async function Home() {
   const { results: popular } = await getPopularMovies();
@@ -19,6 +20,7 @@ export default async function Home() {
       <main className="max-w-360 mx-auto sm:px-6 lg:px-8">
         <section className="py-8 md:py-12">
           <GenreHomeList />
+          
           <MovieHomeListings
             title="Now playing"
             category="now_playing"
