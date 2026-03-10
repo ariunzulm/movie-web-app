@@ -1,21 +1,23 @@
+"use client";
+
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Play, Star } from "lucide-react";
+import { Pause, Play, Star } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { useState } from "react";
 
 type MovieHomeCardProps = {
   rating: number;
   movieName: string;
   description: string;
+
   posterImage: string;
-  onPlayClick?: () => void;
 };
 
 const MovieHomeCard = ({
   movieName,
   posterImage,
   rating,
-  onPlayClick,
 }: MovieHomeCardProps) => {
   const posterUrl = `https://image.tmdb.org/t/p/w500${posterImage}`;
 
@@ -39,14 +41,10 @@ const MovieHomeCard = ({
         </div>
 
         <div className="hidden group-hover:block w-full space-y-2">
-          <h3 className="text-lg md:text-xl font-bold leading-tight text-white line-clamp-2">
+          <h3 className="text-lg md:text-xl font-bold leading-tight text-white line-clamp-2 truncate">
             {movieName}
           </h3>
           <div className="flex justify-between items-center w-full">
-            <span className="text-xs sm:text-sm font-medium text-gray-300 bg-black/40 px-2 py-1 rounded-md backdrop-blur-sm">
-              Genre
-            </span>
-
             <Badge
               variant="secondary"
               className="px-2 py-1 flex items-center gap-1"
@@ -58,8 +56,10 @@ const MovieHomeCard = ({
             </Badge>
           </div>
           <Button
-            className="w-full text-sm bg-primary text-white border border-zinc-200 gap-1.5 hover:bg-zinc-200 hover:text-black transition-colors group/btn"
-            onClick={onPlayClick}
+            className="w-full cursor-pointer text-sm bg-primary text-white border border-zinc-200 gap-1.5 hover:bg-zinc-200 hover:text-black transition-colors group/btn"
+            onClick={() => {
+              document.getElementById("playTrailer")?.scrollLeft;
+            }}
           >
             <Play className="w-3 h-3 group-hover/btn:fill-current transition-all" />
             Watch Trailer

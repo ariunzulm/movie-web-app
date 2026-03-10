@@ -18,7 +18,7 @@ export function ModeToggle() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="w-10 h-10 bg-transparent border-none outline-none text-zinc-200 hover:text-red-800">
+        <Button className="w-10 h-10 bg-transparent cursor-pointer border-none outline-none text-zinc-200 hover:text-red-800">
           {theme === "light" ? <Moon className="" /> : <Sun className="" />}
         </Button>
       </DropdownMenuTrigger>
@@ -26,7 +26,7 @@ export function ModeToggle() {
       <DropdownMenuContent
         align="end"
         className={cn(
-          "absolute top-full right-0 mt-5 rounded-2xl overflow-hidden ",
+          "absolute top-full right-0 mt-5 rounded-2xl  overflow-hidden cursor-pointer",
           "shadow-[0_8px_32px_rgba(0,0,0,0.6)]",
           "bg-[#1a1a1a] dark:bg-[#1a1a1a] border border-white/8 dark:border-white/8",
           "light:bg-white light:border-zinc-200 light:shadow-[0_8px_32px_rgba(0,0,0,0.12)]",
@@ -35,7 +35,7 @@ export function ModeToggle() {
         <DropdownMenuItem
           onClick={() => setTheme("light")}
           className={cn(
-            "flex hover:text-zinc-900 items-center justify-between gap-4 px-4 py-3 transition-colors",
+            "flex hover:text-zinc-900 cursor-pointer items-center justify-between gap-4 px-4 py-3 transition-colors",
             "hover:bg-white/5 dark:hover:bg-white/5",
             "light:hover:bg-zinc-50",
           )}
@@ -45,7 +45,7 @@ export function ModeToggle() {
         <DropdownMenuItem
           onClick={() => setTheme("dark")}
           className={cn(
-            "flex hover:text-zinc-900 items-center justify-between gap-4 px-4 py-3 transition-colors",
+            "flex hover:text-zinc-900 cursor-pointer items-center justify-between gap-4 px-4 py-3 transition-colors",
             "hover:bg-white/5 dark:hover:bg-white/5",
             "light:hover:bg-zinc-50",
           )}
@@ -55,7 +55,7 @@ export function ModeToggle() {
         <DropdownMenuItem
           onClick={() => setTheme("system")}
           className={cn(
-            "flex hover:text-zinc-900 items-center justify-between gap-4 px-4 py-3 transition-colors",
+            "flex hover:text-zinc-900 cursor-pointer items-center justify-between gap-4 px-4 py-3 transition-colors",
             "hover:bg-white/5 dark:hover:bg-white/5",
             "light:hover:bg-zinc-50",
           )}

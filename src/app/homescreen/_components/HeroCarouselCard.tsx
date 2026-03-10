@@ -67,12 +67,12 @@ const HeroCarouselCard = ({
           </CardDescription>
 
           <div className="flex gap-3">
-            <Button className="w-fit gap-1.5 py-1 text-sm font-semibold rounded-lg text-black bg-gray-200 border border-white/20 hover:bg-zinc-200 hover:scale-105 transition-all duration-200 group/btn shadow-2xl hover:text-red-800">
+            <Button className="cursor-pointer w-fit gap-1.5 py-1 text-sm font-semibold rounded-lg text-black bg-gray-200 border border-white/20 hover:bg-zinc-200 hover:scale-105 transition-all duration-200 group/btn shadow-2xl hover:text-red-800">
               <Play className="w-3 h-3 group-hover/btn:fill-current" />
               Play Trailer
             </Button>
 
-            <Button className="w-fit  gap-1.5 py-1 text-sm font-semibold shadow-lg rounded-lg bg-white/10 text-white border border-white/20 backdrop-blur-sm hover:bg-white/20 hover:scale-105 transition-all duration-200 group/btn">
+            <Button className="cursor-pointer w-fit gap-1.5 py-1 text-sm font-semibold shadow-lg rounded-lg bg-white/10 text-white border border-white/20 backdrop-blur-sm hover:bg-white/20 hover:scale-105 transition-all duration-200 group/btn">
               <Info className="w-3 h-3" />
               See More
             </Button>

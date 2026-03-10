@@ -1,4 +1,4 @@
-import { Badge } from "@/components/ui/badge";
+
 import { getMovieById } from "@/lib/api/get-moviesById";
 import { Calendar, Clock, Languages, Star } from "lucide-react";
 import { DetailsCardProps } from "../_utils/awaits";
@@ -66,7 +66,7 @@ const MovieInfo = async ({ params }: DetailsCardProps) => {
         <SectionHeader title="Details" />
         <div className="flex items-center gap-3 text-muted-foreground border w-fit px-1.5 py-0.5 font-semibold ">
           <Languages className="w-4 h-4" />
-          {movie.original_language}
+          {movie.original_language.toUpperCase()}
         </div>
         <div className="flex items-center gap-3 text-muted-foreground ">
           <Calendar className="w-4 h-4" />

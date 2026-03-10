@@ -2,16 +2,14 @@
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Volume2, VolumeOff } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
 
-type LinkeButtonsProps = {
+type LinkButtonsProps = {
   mute: number;
 
   setMute: (value: number) => void;
 };
 
-const LinkButtons = ({ setMute, mute }: LinkeButtonsProps) => {
-  console.log("mute", setMute);
+const LinkButtons = ({ setMute, mute }: LinkButtonsProps) => {
   return (
     <div>
       <Link href="/">

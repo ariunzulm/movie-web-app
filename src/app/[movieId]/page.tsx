@@ -1,11 +1,10 @@
 import { getMovieById } from "@/lib/api/get-moviesById";
 import { DetailsCardProps } from "./_utils/awaits";
 
-import Buttons from "./_components/Bottons";
 import MovieInfo from "./_components/MovieInfo";
 import Similars from "./_components/Similars";
 import PosterDetails from "./_components/PosterDetails";
-import LinkButtons from "./_components/LinkButtons";
+
 import { getMoviesByTrailer } from "@/lib/api/get-movies-by-trailer";
 import { TrailerSection } from "./_components/TrailerSection";
 
@@ -30,26 +29,10 @@ const DetailsCard = async ({ params }: DetailsCardProps) => {
   return (
     <div className="text-foreground">
       <div className="w-full">
-        {/* <div className="relative w-full h-[80vh]">
-          <div className="absolute inset-0">
-            <iframe
-              className="h-full w-full aspect-video object-cover rounded-xl shadow-lg "
-              src={`https://www.youtube.com/embed/${trailer.key}?autoplay=1&mute=${setMute}`}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-            <Buttons />
-
-            <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent" />
-            <div className="absolute inset-0 bg-linear-to-r from-black/80 via-transparent to-transparent" />
-          </div>
-
-          <LinkButtons setMute={} />
-        </div> */}
-        <TrailerSection trailerKey={trailer.key} />
-        <div className="absolute p-12 top-3/5 z-40 group">
-          <div className="max-w-7xl mx-auto text-white space-y-6">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+        <TrailerSection trailerKey={trailer.key} backdropUrl={backdropUrl} />
+        <div className="absolute p-12 top-3/5 group">
+          <div className="max-w-7xl mx-auto text-white space-y-14">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight truncate">
               {movie.title}
             </h1>
           </div>

@@ -17,7 +17,7 @@ const MovieHomeListings = async ({
   return (
     <>
       <div className="mx-auto max-w-7xl 0 px-4 sm:px-6 lg:px-8">
-        <MovieListingTitles title={title} category={category}/>
+        <MovieListingTitles title={title} category={category} />
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
           {movies?.slice(0, 8).map((movie) => (

@@ -15,7 +15,7 @@ const Similars = async ({ params }: SimilarsProps) => {
   const { results } = await getSimilarMovies(movieId);
   console.log("mvoe", results);
   return (
-    <div className="p-6 max-w-360 mx-auto sm:px-6 lg:px-8">
+    <div id="similars" className="p-6 max-w-360 mx-auto sm:px-6 lg:px-8">
       <div className="flex flex-col w-full gap-4">
         <SectionHeader title="You may like" />
       </div>
