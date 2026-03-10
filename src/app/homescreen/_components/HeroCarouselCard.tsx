@@ -42,6 +42,7 @@ const HeroCarouselCard = ({
           </CardTitle>
 
           <div className="flex gap-3">
+            
             <div className="flex items-center gap-1 py-1 px-3 border border-white/20 bg-white/5 backdrop-blur-sm rounded-full">
               <Star fill="#FDE047" className="text-amber-300 w-4 h-4" />
               <p className="text-sm font-semibold text-white">

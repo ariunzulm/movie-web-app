@@ -2,15 +2,14 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Pause, Play, Star } from "lucide-react";
+import { Play, Star } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import { useState } from "react";
 
 type MovieHomeCardProps = {
   rating: number;
   movieName: string;
   description: string;
-
+  genre: string;
   posterImage: string;
 };
 
@@ -18,6 +17,7 @@ const MovieHomeCard = ({
   movieName,
   posterImage,
   rating,
+  genre,
 }: MovieHomeCardProps) => {
   const posterUrl = `https://image.tmdb.org/t/p/w500${posterImage}`;
 
@@ -44,7 +44,11 @@ const MovieHomeCard = ({
           <h3 className="text-lg md:text-xl font-bold leading-tight text-white line-clamp-2 truncate">
             {movieName}
           </h3>
-          <div className="flex justify-between items-center w-full">
+          <div className="flex justify-between w-full">
+            {/* <div className="py-1 px-3 border border-white/20 bg-white/5 backdrop-blur-sm rounded-full">
+              <p className="text-sm font-semibold text-white">{genre}</p>
+            </div> */}
+
             <Badge
               variant="secondary"
               className="px-2 py-1 flex items-center gap-1"

@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Download, Info, Pause, Play, Plus } from "lucide-react";
+import { Download, Info, Layers, Pause, Play, Plus } from "lucide-react";
 
 type ButtonsProps = {
   play: boolean;
@@ -42,9 +42,10 @@ const Buttons = ({ setPlay, play }: ButtonsProps) => {
       <Button
         size="icon"
         variant="ghost"
-        className="cursor-pointer h-12 w-12 rounded-full  bg-white/10 text-white border border-white/20 backdrop-blur-sm hover:bg-white/20 hover:scale-105 transition-all duration-200 group/btn"
+        className="cursor-pointer w-fit gap-1.5 px-3 py-1 text-sm font-semibold shadow-lg rounded-lg bg-white/10 text-white border border-white/20 backdrop-blur-sm hover:bg-white/20 hover:scale-105 transition-all duration-200 group/btn"
       >
         <Download className="w-4 h-4" />
+        Download
       </Button>
 
       <Button
@@ -55,11 +56,10 @@ const Buttons = ({ setPlay, play }: ButtonsProps) => {
         }}
         className="cursor-pointer w-fit gap-1.5 py-1 text-sm font-semibold shadow-lg rounded-lg bg-white/10 text-white border border-white/20 backdrop-blur-sm hover:bg-white/20 hover:scale-105 transition-all duration-200 group/btn"
       >
-        <Info className="w-3 h-3" />
+        <Layers className="w-3 h-3" />
         Similars
       </Button>
     </div>
   );
 };
 export default Buttons;
-
